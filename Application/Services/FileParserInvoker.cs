@@ -25,7 +25,12 @@ namespace Notifyer.Application.Services
         {
             if (_commands.TryGetValue(fileType.ToLower(), out var command))
             {
-                return await command.ExecuteAsync(filePath, notificationStrategy);
+                var recivers = await command.ExecuteAsync(filePath);
+
+                foreach (var reciver in recivers)
+                {
+                    await notificationStrategy.SendNotification(reciver);
+                }
             }
             throw new NotSupportedException($"No command found for file type: {fileType}");
         }

@@ -14,11 +14,11 @@ namespace Notifyer.Application.Services.FileParserCommands
             _logger = logger;
         }
 
-        public async Task<List<NotificationReciver>> ExecuteAsync(string filePath, INotificationStrategy notificationStrategy)
+        public async Task<List<NotificationReciver>> ExecuteAsync(string filePath)
         {
             _logger.LogInformation($"[START] Processing file: {filePath}");
 
-            var result = await _innerCommand.ExecuteAsync(filePath, notificationStrategy);
+            var result = await _innerCommand.ExecuteAsync(filePath);
 
             _logger.LogInformation($"[END] Completed processing file: {filePath}");
             return result;

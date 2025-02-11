@@ -4,6 +4,6 @@ namespace Notifyer.Application.Services.Abstraction
 {
     public interface IFileParseCommand
     {
-        Task<List<NotificationReciver>> ExecuteAsync(string filePath, INotificationStrategy notificationStrategy);
+        Task<List<NotificationReciver>> ExecuteAsync(string filePath);
     }
 }
