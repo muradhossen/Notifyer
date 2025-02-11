@@ -1,8 +1,5 @@
 ﻿using Notifyer.Application.Services.Abstraction;
 using Notifyer.Domain;
-using System.Net;
-using System.Text;
-using System.Text.Json;
 
 namespace Notifyer.Application.Services
 {

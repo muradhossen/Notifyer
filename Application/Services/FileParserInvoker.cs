@@ -21,11 +21,11 @@ namespace Notifyer.Application.Services
             }
         }
 
-        public List<NotificationReciver> ExecuteCommand(string fileType, string filePath, INotificationStrategy notificationStrategy)
+        public async Task<List<NotificationReciver>> ExecuteCommand(string fileType, string filePath, INotificationStrategy notificationStrategy)
         {
             if (_commands.TryGetValue(fileType.ToLower(), out var command))
             {
-                return command.Execute(filePath, notificationStrategy);
+                return await command.ExecuteAsync(filePath, notificationStrategy);
             }
             throw new NotSupportedException($"No command found for file type: {fileType}");
         }

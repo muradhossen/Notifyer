@@ -1,6 +1,6 @@
 @Notifyer_HostAddress = http://localhost:5235
 
-GET {{Notifyer_HostAddress}}/weatherforecast/
+POST {{Notifyer_HostAddress}}/send-sms/
 Accept: application/json
 
 ###
